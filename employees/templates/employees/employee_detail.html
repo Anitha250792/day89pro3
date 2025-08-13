@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title mb-3">Employee Detail</h5>
+    <dl class="row">
+      <dt class="col-sm-3">Name</dt><dd class="col-sm-9">{{ employee.name }}</dd>
+      <dt class="col-sm-3">Full Name (Upper)</dt><dd class="col-sm-9">{{ employee.full_name_upper }}</dd>
+      <dt class="col-sm-3">Role</dt><dd class="col-sm-9">{{ employee.role }}</dd>
+      <dt class="col-sm-3">Department</dt><dd class="col-sm-9">{{ employee.department }}</dd>
+      <dt class="col-sm-3">Email</dt><dd class="col-sm-9">{{ employee.email }}</dd>
+    </dl>
+    <div class="d-flex gap-2">
+      <a class="btn btn-primary" href="{% url 'employee_edit' employee.pk %}">Edit</a>
+      <a class="btn btn-outline-danger" href="{% url 'employee_delete' employee.pk %}">Delete</a>
+      <a class="btn btn-secondary" href="{% url 'employee_list' %}">Back</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
